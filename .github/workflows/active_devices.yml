@@ -1,0 +1,21 @@
+name: Build UEFI for active devices
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - '/'
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+    paths:
+      - '/'
+env:
+  CI_BUILD: true
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: get sth
+        run: bash ./extract_struct_offsets.sh vmlinux
+
