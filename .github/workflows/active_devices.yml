@@ -17,5 +17,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: get sth
-        run: bash ./extract_struct_offsets.sh vmlinux
+        run: sudo apt install dwarves && bash ./extract_struct_offsets.sh vmlinux
 
